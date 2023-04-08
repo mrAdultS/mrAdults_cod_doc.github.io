@@ -1,1 +1,1327 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cod-mwii-e%E3%82%B9%E3%83%9D-%E3%83%A1%E3%83%A2">cod MWII eスポ　メモ</h1>
+<p>作成日：2023/04/08</p>
+<p>更新日：2023/04/08</p>
+<p>作成者：mrAdults (@mr_adultsS)</p>
+<!-- new page -->
+<!-- <div style="page-break-before:always"></div> -->
+<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<ul>
+<li><a href="#norwegian-wood%E4%BD%9C%E6%88%A6%E4%BB%95%E6%A7%98%E6%9B%B8">「NORWEGIAN WOOD」作戦仕様書</a>
+<ul>
+<li><a href="#%E7%9B%AE%E6%AC%A1">目次</a></li>
+<li><a href="#%E3%83%81%E3%83%BC%E3%83%A0%E8%A9%B3%E7%B4%B0">チーム詳細</a></li>
+<li><a href="#%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E8%A9%B3%E7%B4%B0">メンバー詳細</a></li>
+<li><a href="#%E4%BD%9C%E6%88%A6">作戦</a>
+<ul>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E5%85%A8%E4%BD%93">ハードポイント:全体</a></li>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">ハードポイント:各マップ</a>
+<ul>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88berlin">ハードポイント:BERLIN</a></li>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88bocage">ハードポイント:BOCAGE</a></li>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88gavutu">ハードポイント:GAVUTU</a></li>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88tuscan">ハードポイント:TUSCAN</a></li>
+</ul>
+</li>
+<li><a href="#sd%E5%85%A8%E4%BD%93">S&amp;D:全体</a></li>
+<li><a href="#sd%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">S&amp;D:各マップ</a>
+<ul>
+<li><a href="#sdberlin">S&amp;D:BERLIN</a></li>
+<li><a href="#sdbocage">S&amp;D:BOCAGE</a></li>
+<li><a href="#sddesert-siege">S&amp;D:DESERT SIEGE</a></li>
+<li><a href="#sdtuscan">S&amp;D:TUSCAN</a></li>
+</ul>
+</li>
+<li><a href="#control%E5%85%A8%E4%BD%93">CONTROL:全体</a></li>
+<li><a href="#control%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">CONTROL:各マップ</a>
+<ul>
+<li><a href="#controlberlin">CONTROL:BERLIN</a></li>
+<li><a href="#controlgavutu">CONTROL:GAVUTU</a></li>
+<li><a href="#controltuscan">CONTROL:TUSCAN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</a>
+<ul>
+<li><a href="#%E3%83%9E%E3%83%83%E3%83%97%E5%90%8D%E7%A7%B0">マップ名称</a>
+<ul>
+<li><a href="#berlin"><strong>BERLIN</strong></a></li>
+<li><a href="#bocage"><strong>BOCAGE</strong></a></li>
+<li><a href="#desert-siege"><strong>DESERT SIEGE</strong></a></li>
+<li><a href="#gavutu"><strong>GAVUTU</strong></a></li>
+<li><a href="#tuscan"><strong>TUSCAN</strong></a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%83%AA%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%B3%E4%BD%8D%E7%BD%AE">ハードポイント:リスポーン位置</a>
+<ul>
+<li><a href="#berlin-1">BERLIN</a>
+<ul>
+<li><a href="#%EF%BC%91%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE"><strong>１ポイント目</strong></a></li>
+<li><a href="#%EF%BC%92%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE"><strong>２ポイント目</strong></a></li>
+<li><a href="#%EF%BC%93%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE"><strong>３ポイント目</strong></a></li>
+<li><a href="#%EF%BC%94%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE"><strong>４ポイント目</strong></a></li>
+<li><a href="#%EF%BC%95%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE"><strong>５ポイント目</strong></a></li>
+</ul>
+</li>
+<li><a href="#gavutu-1">GAVUTU</a>
+<ul>
+<li><a href="#%EF%BC%91%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-1"><strong>１ポイント目</strong></a></li>
+<li><a href="#%EF%BC%92%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-1"><strong>２ポイント目</strong></a></li>
+<li><a href="#%EF%BC%93%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-1"><strong>３ポイント目</strong></a></li>
+<li><a href="#%EF%BC%94%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-1"><strong>４ポイント目</strong></a></li>
+<li><a href="#%EF%BC%95%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-1"><strong>５ポイント目</strong></a></li>
+</ul>
+</li>
+<li><a href="#tuscan-1">TUSCAN</a>
+<ul>
+<li><a href="#%EF%BC%91%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-2"><strong>１ポイント目</strong></a></li>
+<li><a href="#%EF%BC%92%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-2"><strong>２ポイント目</strong></a></li>
+<li><a href="#%EF%BC%93%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-2"><strong>３ポイント目</strong></a></li>
+<li><a href="#%EF%BC%94%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-2"><strong>４ポイント目</strong></a></li>
+<li><a href="#%EF%BC%95%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E7%9B%AE-2"><strong>５ポイント目</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%BD%9C%E6%88%A6">作戦</h2>
+<h3 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E5%85%A8%E4%BD%93">ハードポイント:全体</h3>
+<ol>
+<li><strong>ローテは３０秒台から意識する</strong></li>
+<li><strong>味方のカバーができる位置を確認して動く</strong></li>
+<li><strong>エリアは縦に広がることを優先する</strong>
+<ul>
+<li>囲まれないようするため</li>
+<li>ローテと裏取りは例外</li>
+</ul>
+</li>
+<li><strong>ローテ時に使うラインをチームで共通にするためコールする</strong></li>
+<li>報告内容は以下の項目を意識する
+<ul>
+<li>敵の位置</li>
+<li>残り秒数
+<ul>
+<li>自分がダウンしたら確認して報告!!</li>
+</ul>
+</li>
+<li>ダウン枚数
+<ul>
+<li>自分がダウンしたら確認して報告!!</li>
+</ul>
+</li>
+<li><strong>自分がしようとしていること</strong>
+<ul>
+<li>例：
+<ul>
+<li>○○のエリア取りに行く</li>
+<li>○○を見てる</li>
+<li>○○の敵をキルしに行く</li>
+<li>拠点乗りにいく</li>
+<li><strong>「ローテ○○からするね」</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>味方のリスポーン位置
+<ul>
+<li>変わったときは必ず報告!!</li>
+</ul>
+</li>
+<li>敵のリスポーン位置
+<ul>
+<li>わかっていればでOK</li>
+<li>わからなくても意識はすること!!</li>
+</ul>
+</li>
+<li>リスポーンを潰したとき
+<ul>
+<li>リスポーンを潰す＝敵の位置が変わる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">ハードポイント:各マップ</h3>
+<p>↓↓youtube参考リンク↓↓</p>
+<p>元動画１：Winners Round 1 | @Boston Breach vs @LA Thieves | Championship Weekend | Day 1</p>
+<p><a href="https://www.youtube.com/watch?v=Rq3dvcrE3pQ"><img src="https://img.youtube.com/vi/Rq3dvcrE3pQ/0.jpg" alt=""></a></p>
+<p>元動画２：Major Final | @LA Thieves vs @New York Subliners | New York Major IV | Day 4</p>
+<p><a href="https://www.youtube.com/watch?v=kPpvs3mW4kQ"><img src="https://img.youtube.com/vi/kPpvs3mW4kQ/0.jpg" alt=""></a></p>
+<p>元動画３：Championship Final | @LA Thieves vs @Atlanta FaZe | Championship Weekend | Day 4</p>
+<p><a href="https://www.youtube.com/watch?v=xXQgc9ELtEk"><img src="https://img.youtube.com/vi/xXQgc9ELtEk/0.jpg" alt=""></a></p>
+<h4 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88berlin">ハードポイント:BERLIN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/Rq3dvcrE3pQ?t=3861">Winners Round 1 | @Boston Breach vs @LA Thieves</a></p>
+</li>
+<li>
+<p>１ポイント目</p>
+<ul>
+<li>アッパーを取り続ける
+<ul>
+<li>庭階など、裏取り警戒</li>
+<li>L字対策にもなる</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>駅、駅外周、L字の３箇所から同時に侵攻する
+<ul>
+<li>１箇所からのブレイクは難しいから２～３箇所から崩す</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>アッパー１人、ポイント３人
+<ul>
+<li>駅外周と駅からの侵入をポイント踏んでいる人が警戒する</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>２ポイント目</p>
+<ul>
+<li>メル２階と窓をうまく使う</li>
+<li>外周は取られたら無視する</li>
+<li>ブレイク：
+<ul>
+<li>正面は避ける</li>
+<li>窓、メル２階から侵攻する</li>
+<li><strong>外周が取れたなら小部屋から進行する</strong>
+<ul>
+<li>取れていないなら徹底的に無視する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>メル２ １人、 外周１人、ポイント２人</li>
+<li>押し返せたらファイアまで上がる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>３ポイント目</p>
+<ul>
+<li>最奥とファイアを取る
+<ul>
+<li>奥の窓からファイアへ射線を通すと強い</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>４ポイント目</p>
+<ul>
+<li><strong>横で取るのではなく縦でエリアを取る</strong>
+<ul>
+<li>線路外周、駅外周、拠点中</li>
+<li>横に広がっても倉庫まで</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>線路外周を取りに行く
+<ul>
+<li>取りに行くときは２人以上で</li>
+</ul>
+</li>
+<li>線路外周が取れなかったら、拠点乗っている敵をキルする
+<ul>
+<li>ポイント稼がせないため</li>
+<li>５ポと倉庫からキルしにいく</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>線路外周を死守する</li>
+<li>拠点は線路側下の端っこで乗る
+<ul>
+<li>頭出さない！！</li>
+</ul>
+</li>
+<li>SMGは駅と５ポまで上がってもいい</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>５ポイント目</p>
+<ul>
+<li>駅とメルのどちらを先に取るのか、チームで共有する
+<ul>
+<li>両方は同時に無理。一つずつエリアをとっていく</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>駅 or メルを取った後に拠点に侵入する
+<ul>
+<li>先に正面から当たってもキープできない
+<ul>
+<li>駅 or メルからキルされるから</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>駅とメルを取られないように横に広がる
+<ul>
+<li>どちらからブレイクしようよしているのか、情報をつかむことが重要</li>
+<li>拠点は１人でOK</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88bocage">ハードポイント:BOCAGE</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/kPpvs3mW4kQ?t=173">MajorIV Final | @LA Thieves vs @New York Subliners</a></p>
+</li>
+<li>
+<p>１ポイント目</p>
+<ul>
+<li>固まらない、いろんな箇所から拠点に絡む
+<ul>
+<li>路地、センコベ、センター、樽...etc</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>複数の箇所から同時に攻める</li>
+<li>絶対に一人でアクションしない</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>SMGが相手リスへ前押しする</li>
+<li>ARは２ポ側のリスをキープする
+<ul>
+<li>家畜で２ポ上がりをキルする</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>２ポイント目</p>
+<ul>
+<li>藁を取ることがポイント
+<ul>
+<li>路地、センターから侵攻する</li>
+</ul>
+</li>
+<li>ブレイク：</li>
+<li>キープ：
+<ul>
+<li>家畜とドラム缶に一人ずつ入る</li>
+<li>他で藁を守る</li>
+<li>路地まで上がって前押し</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>３ポイント目</p>
+<ul>
+<li>正面、黒バン、作業から２箇所同時に侵攻する
+<ul>
+<li>フランクを使うことを意識する</li>
+</ul>
+</li>
+<li>ブレイク：</li>
+<li>キープ：
+<ul>
+<li>同じ方向を見ない
+<ul>
+<li>複数の侵入箇所をケアするようにする</li>
+</ul>
+</li>
+<li>ARは黒版をケアする</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>４ポイント目</p>
+<ul>
+<li>２ポとセンターを使う
+<ul>
+<li>路地に行くときは２人以上</li>
+</ul>
+</li>
+<li>せめて競合にする</li>
+<li>ブレイク：
+<ul>
+<li>路地とセンターor ２ポを使う
+<ul>
+<li><strong>センターと２ポどちらを使うかをコールする!!</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>ARはセンターと２ポどちらかを取る</li>
+<li>SMGは拠点で角待ち</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>５ポイント目</p>
+<ul>
+<li>縦に広がる意識する
+<ul>
+<li>イナセンとかには広がらない</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>トンネルと黒バン、３ポを使う
+<ul>
+<li>トンネル使うときは他の人がL字に射線を通す</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>L字と塔付近から黒バンに射線通す
+<ul>
+<li>党は川正面も確認する</li>
+<li>SMGは黒バンと３ポをケアする</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88gavutu">ハードポイント:GAVUTU</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=532">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>１ポイント目</p>
+<ul>
+<li>SMGは丸で粘る</li>
+<li>ブレイク：
+<ul>
+<li>海 AR１人、残りは全員正面から拠点へ侵攻する</li>
+<li>SMG２人でもOK</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>丸外周 AR１人、階段 AR１人、丸 SMG１人</li>
+<li>ARなら４戦か１戦に１人だけ行くはあり</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>２ポイント目</p>
+<ul>
+<li>重要なのは「甲板」</li>
+<li>３ポ側リスを取りに行く</li>
+<li>ブレイク：
+<ul>
+<li>１戦 or オフィスから甲板を取りにいく</li>
+<li>２戦とオフィス前 or アーチ下から同時に拠点へ侵攻する</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li><strong>ARは甲板絶対死守！！</strong></li>
+<li>拠点は動き続ける
+<ul>
+<li>同じ位置をキープしない</li>
+</ul>
+</li>
+<li>２戦をとられないようにする
+<ul>
+<li>１戦、崖上、４戦、オフィスから見る</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>３ポイント目</p>
+<ul>
+<li>射線が通りまくるのでカバーできる位置をキープするのが重要</li>
+<li>リスは無理に変えにいかなくていい</li>
+<li>ブレイク：
+<ul>
+<li>１ポ３人、センター AR １人</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>タワー１人、３ポ２人、岩１人</li>
+<li>SMGは３ポ前の岩キープ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>４ポイント目</p>
+<ul>
+<li>リスは無理に変えにいかなくていい</li>
+<li>ブレイク：
+<ul>
+<li>崖 or 正面 or トラック のどれか２箇所から同時侵攻する</li>
+<li><strong>特に崖侵攻は勝率低いから 正面 or トラック侵攻と合わせる</strong></li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>４ポ２人、最奥１人</li>
+<li>SMGは崖とか４戦で暴れる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>５ポイント目</p>
+<ul>
+<li>タワー湧きを取りに行く
+<ul>
+<li>早めに３ポから取りに行く</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li><strong>挟み込む!!</strong></li>
+<li>甲板２人、オフィス裏２人
+<ul>
+<li>SMGはオフィス裏</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li><strong>拠点入ったら絶対頭を出さない!!</strong></li>
+<li>オフィス２階１人、拠点２人、タワー１人</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="%E3%83%8F%E3%83%BC%E3%83%89%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88tuscan">ハードポイント:TUSCAN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=4164">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>１ポイント目</p>
+<ul>
+<li>センターから崩す
+<ul>
+<li>正面は停滞、コの字侵攻のときに上がる</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>センター２枚、正面２枚で同時侵攻を意識
+<ul>
+<li>コの字と正面から同時に侵攻</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li><strong>２ポ側のリスを取りにいく</strong></li>
+<li>オブジェとコの字で拠点を踏む</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>２ポイント目</p>
+<ul>
+<li>通信とガーデンは死守する</li>
+<li>ブレイク：x
+<ul>
+<li>通信とトラックから侵攻する</li>
+<li>T字は使わないようにする</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>通信１人、ガーデン１人、拠点１人
+<ul>
+<li>SMG１人で相手のリスに詰める</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>３ポイント目</p>
+<ul>
+<li><strong>L字とアーチはSMGでは絶対にいかない</strong>
+<ul>
+<li>ファイアと屋根から侵攻／キープする</li>
+</ul>
+</li>
+<li>ブレイク：
+<ul>
+<li>SMGは全部ファイア、ARはL字かアーチでキープする</li>
+<li>強ポはグレでコロス</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>拠点はアーチ見て頭出さない</li>
+<li>最奥１人、屋根１人、ポイント１人、ファイア／センター１人</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>４ポイント目</p>
+<ul>
+<li>T字、協会２階、花壇を取る</li>
+<li>ブレイク：
+<ul>
+<li>T字と花壇どちらかを取る</li>
+<li>センターか天使からの侵攻と合わせる
+<ul>
+<li>教２階でもあり</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>教２階と花壇を取る
+<ul>
+<li>SMGは通信とT字を取る</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>５ポイント目</p>
+<ul>
+<li>グレは味方と合わせて投げる</li>
+<li>ブレイク：
+<ul>
+<li>両方の入り口から同時に攻める
+<ul>
+<li>ファイア、５ポ外</li>
+<li>１階は見られている可能性大なのであまり使わない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>キープ：
+<ul>
+<li>ARで５ポ１階の踊り場は絶対に取る
+<ul>
+<li>取られていないことが大事</li>
+</ul>
+</li>
+<li>裏取りは一人警戒する</li>
+<li>あとは全員拠点に乗る</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="sd%E5%85%A8%E4%BD%93">S&amp;D:全体</h3>
+<ol>
+<li><strong>攻め方だけ決める</strong></li>
+<li>守りは相手の動きを学んでその場で対応する。</li>
+</ol>
+<h3 id="sd%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">S&amp;D:各マップ</h3>
+<p>↓↓youtube参考リンク↓↓</p>
+<p>元動画１：Championship Final | @LA Thieves vs @Atlanta FaZe | Championship Weekend | Day 4</p>
+<p><a href="https://www.youtube.com/watch?v=xXQgc9ELtEk"><img src="https://img.youtube.com/vi/xXQgc9ELtEk/0.jpg" alt=""></a></p>
+<p>元動画２：Winners Round 1 | @Boston Breach vs @LA Thieves | Championship Weekend | Day 1</p>
+<p><a href="https://www.youtube.com/watch?v=Rq3dvcrE3pQ"><img src="https://img.youtube.com/vi/Rq3dvcrE3pQ/0.jpg" alt=""></a></p>
+<h4 id="sdberlin">S&amp;D:BERLIN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=1400">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>攻め方：</p>
+<ul>
+<li>その１：Ｂ狙い
+<ul>
+<li>駅外周 or タワー： 1人</li>
+<li>５ポ： 2人</li>
+<li>車庫： 1人</li>
+</ul>
+</li>
+<li>その２：Ｂ狙い
+<ul>
+<li>駅外周 or タワー： 1人</li>
+<li>車庫： 1人</li>
+<li>２ポ： 2人</li>
+</ul>
+</li>
+<li>その３：Ａ狙い
+<ul>
+<li>倉庫屋根： 1人</li>
+<li>駅外周侵攻： 2人</li>
+<li>駅中： １人</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="sdbocage">S&amp;D:BOCAGE</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=5331">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>攻め方：</p>
+<ul>
+<li>その１：Ａ狙い
+<ul>
+<li>センター： １人</li>
+<li>センコベ： １人</li>
+<li>路地： ２人</li>
+</ul>
+</li>
+<li>その２：Ａ狙い
+<ul>
+<li>センター： １人</li>
+<li>川： １人</li>
+<li>藁２階： １人</li>
+<li>２ポ戦車： １人</li>
+</ul>
+</li>
+<li>その３：Ｂ狙い
+<ul>
+<li>花壇： １人</li>
+<li>ゲート： １人</li>
+<li>川： ２人</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="sddesert-siege">S&amp;D:DESERT SIEGE</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/Rq3dvcrE3pQ?t=1238">Winners Round 1 | @Boston Breach vs @LA Thieves</a></p>
+</li>
+<li>
+<p>攻め方：</p>
+<ul>
+<li>その１：Ａ狙い
+<ul>
+<li>２ポ： １人</li>
+<li>砲台： １人</li>
+<li>２両目： １人</li>
+<li>庭： １人</li>
+</ul>
+</li>
+<li>その２：Ａ狙い
+<ul>
+<li>駅前： １人</li>
+<li>２両目： １人</li>
+<li>自リス： １人</li>
+<li>Ｂ建侵攻： １人</li>
+</ul>
+</li>
+<li>その３：B 狙い
+<ul>
+<li>２ポ： １人</li>
+<li>砲台： １人</li>
+<li>２両目： １人</li>
+<li>ランプ： １人</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="sdtuscan">S&amp;D:TUSCAN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=7886">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>攻め方：</p>
+<ul>
+<li>その１：Ａ狙い
+<ul>
+<li>L字： １人</li>
+<li>木： １人</li>
+<li>自コの字： １人</li>
+<li>５ポ： １人</li>
+</ul>
+</li>
+<li>その２：Ｂ狙い
+<ul>
+<li>L字： １人</li>
+<li>ファイア： １人</li>
+<li>５ポ： ２人</li>
+</ul>
+</li>
+<li>その３：Ａ狙い
+<ul>
+<li>井戸： ２人</li>
+<li>オブジェ： １人</li>
+<li>木： １人</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="control%E5%85%A8%E4%BD%93">CONTROL:全体</h3>
+<ol>
+<li><strong>１人では絶対動かないようにする</strong>
+<ul>
+<li>※勝てる確率が高い時ならアリ</li>
+</ul>
+</li>
+<li>味方がカバーできる位置をキープする</li>
+<li>無理に片方の拠点を攻める／守る のはNG。
+<ul>
+<li>早めに捨てる決断をする</li>
+</ul>
+</li>
+<li>拠点を取るときは２人以上で一気に侵攻する</li>
+</ol>
+<h3 id="control%E5%90%84%E3%83%9E%E3%83%83%E3%83%97">CONTROL:各マップ</h3>
+<p>↓↓youtube参考リンク↓↓</p>
+<p>元動画１：Championship Final | @LA Thieves vs @Atlanta FaZe | Championship Weekend | Day 4</p>
+<p><a href="https://www.youtube.com/watch?v=xXQgc9ELtEk"><img src="https://img.youtube.com/vi/xXQgc9ELtEk/0.jpg" alt=""></a></p>
+<h4 id="controlberlin">CONTROL:BERLIN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=6252">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p><strong>攻める時、はじめに一気にB乗って取りきりたい</strong></p>
+<ul>
+<li>Aは１度乗れれば取り切れる。Bを先に取りたい</li>
+</ul>
+</li>
+<li>
+<p>A攻める時</p>
+<ul>
+<li>１ポ前と駅外周、ファイアを使う</li>
+<li>駅の前線を１ポ前まで押すことが重要</li>
+<li>５ポからの抜けが危険なので、急がず焦らず前線を上げる</li>
+<li>前線を上げて乗れれば早い</li>
+</ul>
+</li>
+<li>
+<p>B攻める時</p>
+<ul>
+<li>５ポ抜けと外周を抑えつつ、２人で乗る</li>
+<li>正面は横の部屋を使うのあり</li>
+</ul>
+</li>
+</ul>
+<h4 id="controlgavutu">CONTROL:GAVUTU</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/xXQgc9ELtEk?t=2828">Championship Final | @LA Thieves vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>１ポと船どちらかを先に取りきる</p>
+<ul>
+<li>横に広がるのは相手をリスに押し込めてから</li>
+</ul>
+</li>
+<li>
+<p>攻め方：</p>
+<ul>
+<li>A 攻める時
+<ul>
+<li>甲板は絶対取る
+<ul>
+<li>１人オフィスか５ポ取る</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>B 攻める時
+<ul>
+<li>オフィスと</li>
+<li>１ポと５ポから同時侵攻
+<ul>
+<li>１ポ側と５ポ側から前線を上げるイメージ</li>
+</ul>
+</li>
+<li>センターは極力使わない
+<ul>
+<li>前線を上げるときにセンターは射線通り過ぎて弱い</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="controltuscan">CONTROL:TUSCAN</h4>
+<p>↓↓参考動画↓↓</p>
+<ul>
+<li>
+<p><a href="https://youtu.be/rx6t2vGJBHU?t=2304">Elimination Finals | @Seattle Surge vs @Atlanta FaZe</a></p>
+</li>
+<li>
+<p>Aを取ってからBを取る or A経由でBに乗る</p>
+<ul>
+<li><strong>どっちの作戦を選択中なのかを明確にする</strong></li>
+</ul>
+</li>
+<li>
+<p>Ａ攻める時　（ハーポ１ポの時のブレイクと同じ）</p>
+<ul>
+<li>センターから崩す
+<ul>
+<li>正面は停滞、コの字侵攻のときに上がる</li>
+<li>センター２枚、正面２枚で同時侵攻を意識
+<ul>
+<li>コの字と正面から同時に侵攻</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ｂ攻める時</p>
+<ul>
+<li>教会 or ５ポのどちらかを先に取る
+<ul>
+<li>どっちから侵攻するのかをコール→チームで合わせる</li>
+<li>固めるときはガーデンと通信を取ること</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</h2>
+<h3 id="%E3%83%9E%E3%83%83%E3%83%97%E5%90%8D%E7%A7%B0">マップ名称</h3>
+<h4 id="berlin"><strong>BERLIN</strong></h4>
+<!-- ![](img/norway_berlin.jpg) -->
+<p>※ノルウェイの森：立ち入り禁止エリアから参照</p>
+<h4 id="bocage"><strong>BOCAGE</strong></h4>
+<p><img src="img/norway_bocage.jpg" alt=""></p>
+<p>※ノルウェイの森：立ち入り禁止エリアから参照</p>
+<h4 id="desert-siege"><strong>DESERT SIEGE</strong></h4>
+<p><img src="img/desert_siege_map_named.jpg" alt=""></p>
+<h4 id="gavutu"><strong>GAVUTU</strong></h4>
+<p><img src="img/norway_gavutu.jpg" alt=""></p>
+<p>※ノルウェイの森：立ち入り禁止エリアから参照</p>
+<h4 id="tuscan"><strong>TUSCAN</strong></h4>
+<p><img src="img/norway_tuscan.jpg" alt=""></p>
+<p>※ノルウェイの森：立ち入り禁止エリアから参照</p>
+
+</body>
+</html>
